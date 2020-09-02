@@ -9,8 +9,26 @@ const mongoose = require("mongoose");
 app.use(cors());
 app.use(express.json());
 
+const testData = [
+  {
+    username: 'test',
+    age: 12
+  },
+  {
+    username: 'test2',
+    age: 145
+  }
+]
+
 app.get("/", async (req, res) => {
-  res.send("Welcome to GOLFriend!");
+  res.send(testData);
 });
+
+app.post("/improvement", async (req, res) => {
+  req.body.forEach(item=>{
+    testData.push(item);
+  })
+  res.send(testData);
+})
 
 module.exports = app;
