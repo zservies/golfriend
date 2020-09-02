@@ -19,4 +19,4 @@ const improvementSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.Schema("Improvement", improvementSchema);
+module.exports = mongoose.model("Improvement", improvementSchema);

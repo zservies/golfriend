@@ -2,33 +2,14 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-// const config = require('./utils/config.js');
+const config = require('./utils/config.js');
+const improvementRouter = require('./controllers/improvement');
 
-// mongoose.connect(config.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(config.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(cors());
 app.use(express.json());
+app.use(improvementRouter);
 
-const testData = [
-  {
-    username: 'test',
-    age: 12
-  },
-  {
-    username: 'test2',
-    age: 145
-  }
-]
-
-app.get("/", async (req, res) => {
-  res.send(testData);
-});
-
-app.post("/improvement", async (req, res) => {
-  req.body.forEach(item=>{
-    testData.push(item);
-  })
-  res.send(testData);
-})
 
 module.exports = app;
