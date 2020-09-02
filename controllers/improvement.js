@@ -8,6 +8,12 @@ improvementRouter.get("/improvement", async (req, res) => {
   res.json(improvementItems);
 });
 
+improvementRouter.get("/improvement/:id", async (req, res) => {
+  const id = req.params.id;
+  const improvementItems = await Improvement.findById(id);
+  res.json(improvementItems);
+})
+
 improvementRouter.post("/improvement", async (req, res) => {
   const improvement = new Improvement({
     title: req.body.title,
