@@ -1,5 +1,6 @@
 const Improvement = require("../models/improvement.js");
 const improvement = require("../models/improvement.js");
+const { response } = require("../app.js");
 const improvementRouter = require("express").Router();
 
 improvementRouter.get("/improvement", async (req, res) => {
@@ -17,6 +18,17 @@ improvementRouter.post("/improvement", async (req, res) => {
   try {
     const savedItem = await improvement.save();
     response.status(201).json(savedItem);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+improvementRouter.put("/improvement/:id", async (req, res) => {
+  const id = req.params.id;
+  const body = req.body;
+  try {
+    const result = await Improvement.findByIdAndUpdate(id, body);
+    res.status(201).json(result);
   } catch (error) {
     res.status(400).send(error);
   }
