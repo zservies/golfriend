@@ -1,6 +1,4 @@
 const Improvement = require("../models/improvement.js");
-const improvement = require("../models/improvement.js");
-const { response } = require("../app.js");
 const improvementRouter = require("express").Router();
 
 improvementRouter.get("/improvement", async (req, res) => {
@@ -23,7 +21,7 @@ improvementRouter.post("/improvement", async (req, res) => {
   });
   try {
     const savedItem = await improvement.save();
-    response.status(201).json(savedItem);
+    res.status(201).json(savedItem);
   } catch (error) {
     res.status(400).send(error);
   }
