@@ -25,7 +25,7 @@ const scoresSchema = mongoose.Schema({
 
 scoresSchema.set("toJSON", {
   transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString();
+    returnedObject.id = returnedObject._id.toString(); // Converting ID to string and reassigning to id instead of _id.
     delete returnedObject._id;
     delete returnedObject.__v;
   },
