@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import ScoreInput from "./components/ScoreInput";
+import ScoreItem from "./components/ScoreItem";
 
 function App() {
 
@@ -29,6 +30,9 @@ function App() {
     <div className="App">
       <div className="App-header">
         <ScoreInput createScore={createScore}></ScoreInput>
+        {scores && scores.map((scoreItem)=>(
+          <ScoreItem key = {scoreItem.id} scoreItem={scoreItem}></ScoreItem>
+        ))}
       </div>
     </div>
   );
