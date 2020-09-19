@@ -1,12 +1,14 @@
 import React from "react";
+import axios from "axios";
 import "./App.css";
-import ScoreInput from './components/ScoreInput';
+import ScoreInput from "./components/ScoreInput";
 
 function App() {
-
-  const createScore = (data) => {
-    console.log(data);
-  }
+  const createScore = async (score) => {
+    console.log(score);
+    const result = await axios.post("http://localhost:3003/scores", score);
+    console.log(result);
+  };
 
   return (
     <div className="App">

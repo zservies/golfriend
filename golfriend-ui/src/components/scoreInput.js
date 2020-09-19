@@ -4,16 +4,16 @@ import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
 
 export default function ScoreInput(props) {
-  const [courseName, setCourseName] = useState("");
+  const [course, setCourse] = useState("");
   const [score, setScore] = useState("");
-  const [coursePAR, setCoursePAR] = useState("");
+  const [coursePar, setCoursePar] = useState("");
 
   const submitScore = (event) => {
     event.preventDefault();
     let scoreSubmission = {
-      courseName,
+      course,
       score,
-      coursePAR,
+      coursePar,
     };
     props.createScore(scoreSubmission);
   };
@@ -21,7 +21,7 @@ export default function ScoreInput(props) {
     <div>
       <form noValidate autoComplete="off" onSubmit={submitScore}>
         <TextField
-          onChange={(event) => setCourseName(event.target.value)}
+          onChange={(event) => setCourse(event.target.value)}
           id="outlined-basic"
           label="Course name"
           variant="outlined"
@@ -33,7 +33,7 @@ export default function ScoreInput(props) {
           variant="outlined"
         />
         <TextField
-          onChange={(event) => setCoursePAR(event.target.value)}
+          onChange={(event) => setCoursePar(event.target.value)}
           id="outlined-basic"
           label="Course PAR"
           variant="outlined"
