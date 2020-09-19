@@ -10,6 +10,7 @@ function App() {
   const createScore = async (score) => {
     console.log(score);
     const result = await axios.post("http://localhost:3003/scores", score);
+    fetchScores();
     console.log(result);
   };
 
