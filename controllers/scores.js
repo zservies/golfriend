@@ -6,8 +6,6 @@ scoresRouter.get("/scores", async (req, res) => {
   res.json(scores);
 });
 
-
-
 // TODO: Calculate shots over/under PAR based on score/PAR submitted.
 scoresRouter.post("/scores", async (req, res) => {
   const score = new Score({
@@ -27,5 +25,14 @@ scoresRouter.post("/scores", async (req, res) => {
 });
 
 // TODO: Add ability to edit/delete scores, store courses, etc.
+scoresRouter.delete("/scores/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const result = await Score.findByIdAndDelete(id);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
 
 module.exports = scoresRouter;

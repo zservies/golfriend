@@ -43,7 +43,7 @@ improvementRouter.delete("/improvement/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const result = await Improvement.findByIdAndDelete(id);
-    res.status(201).json(result);
+    res.status(200).json(result);
   } catch (error) {
     res.status(400).send(error);
   }
