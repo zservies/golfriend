@@ -21,6 +21,10 @@ const scoresSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  scoreToPar: {
+    type: String,
+    required: true
+  }
 });
 
 scoresSchema.set("toJSON", {

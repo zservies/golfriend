@@ -1,19 +1,22 @@
 const Score = require("../models/scores");
 const scoresRouter = require("express").Router();
+const scoreHelper = require("../utils/score_helper");
 
 scoresRouter.get("/scores", async (req, res) => {
   const scores = await Score.find({});
   res.json(scores);
 });
 
-// TODO: Calculate shots over/under PAR based on score/PAR submitted.
 scoresRouter.post("/scores", async (req, res) => {
+  const scoreToPar = scoreHelper.scoreToPar(req.body.score, req.body.coursePar); // Calls helper function to calculate shots over/under par.
+
   const score = new Score({
     course: req.body.course,
     score: req.body.score,
     courseRating: req.body.courseRating,
     courseSlope: req.body.courseSlope,
     coursePar: req.body.coursePar,
+    scoreToPar: scoreToPar,
   });
 
   try {
