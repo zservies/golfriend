@@ -3,9 +3,9 @@ import axios from "axios";
 import "./App.css";
 import ScoreInput from "./components/ScoreInput";
 import ScoreItem from "./components/ScoreItem";
+import ScoreList from "./components/ScoreList";
 
 function App() {
-
   const [scores, setScores] = useState("");
   const createScore = async (score) => {
     console.log(score);
@@ -31,9 +31,11 @@ function App() {
     <div className="App">
       <div className="App-header">
         <ScoreInput createScore={createScore}></ScoreInput>
-        {scores && scores.map((scoreItem)=>(
+        <ScoreList scores={scores}></ScoreList>
+
+        {/* {scores && scores.map((scoreItem)=>(
           <ScoreItem key = {scoreItem.id} scoreItem={scoreItem}></ScoreItem>
-        ))}
+        ))} */}
       </div>
     </div>
   );
