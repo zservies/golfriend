@@ -36,7 +36,7 @@ export default function ScoreList(props) {
   // Not making functional until edit UX/architecture is determined.
   const editScore = (scoreItem) => {
     console.log(scoreItem.id);
-  }
+  };
 
   return (
     <div>
@@ -53,7 +53,7 @@ export default function ScoreList(props) {
           </TableHead>
           <TableBody>
             {props.scores &&
-              props.scores.map((scoreItem) => (
+              props.scores.map(scoreItem=>(
                 <TableRow key={scoreItem.id}>
                   <TableCell className={classes.tableCell}>
                     {scoreItem.course}
@@ -68,7 +68,10 @@ export default function ScoreList(props) {
                     {scoreItem.scoreToPar}
                   </TableCell>
                   <TableCell>
-                    <IconButton className={classes.iconButton} onClick = {()=>editScore(scoreItem)}>
+                    <IconButton
+                      className={classes.iconButton}
+                      onClick={() => editScore(scoreItem)}
+                    >
                       <EditIcon />
                     </IconButton>
                   </TableCell>

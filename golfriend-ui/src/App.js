@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import ScoreInput from "./components/ScoreInput";
-import ScoreItem from "./components/ScoreItem";
 import ScoreList from "./components/ScoreList";
 
 function App() {
@@ -25,12 +24,12 @@ function App() {
 
   const deleteScore = async (id) => {
     try {
-      const result = await axios.delete("http://localhost:3003/scores/" + id);
+      await axios.delete("http://localhost:3003/scores/" + id);
       fetchScores(); // Fetch new scores after successfully deleting.
-    } catch(error) {
+    } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     fetchScores();
@@ -41,7 +40,6 @@ function App() {
       <div className="App-header">
         <ScoreInput createScore={createScore}></ScoreInput>
         <ScoreList scores={scores} deleteScore={deleteScore}></ScoreList>
-
         {/* {scores && scores.map((scoreItem)=>(
           <ScoreItem key = {scoreItem.id} scoreItem={scoreItem}></ScoreItem>
         ))} */}
