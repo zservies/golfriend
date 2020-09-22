@@ -8,6 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
     fontWeight: "bold",
     fontSize: "1rem",
   },
-  deleteIcon: {
+  iconButton: {
     color: "grey",
   },
 });
@@ -32,6 +33,11 @@ export default function ScoreList(props) {
   const deleteScore = (scoreItem) => {
     props.deleteScore(scoreItem.id);
   };
+
+  // Not making functional until edit UX/architecture is determined.
+  const editScore = (scoreItem) => {
+    console.log(scoreItem.id);
+  }
 
   return (
     <div>
@@ -63,9 +69,14 @@ export default function ScoreList(props) {
                     {scoreItem.scoreToPar}
                   </TableCell>
                   <TableCell>
+                    <IconButton className={classes.iconButton} onClick = {()=>editScore(scoreItem)}>
+                      <EditIcon />
+                    </IconButton>
+                  </TableCell>
+                  <TableCell>
                     <IconButton
-                      className={classes.deleteIcon}
-                      onClick={()=>deleteScore(scoreItem)}
+                      className={classes.iconButton}
+                      onClick={() => deleteScore(scoreItem)}
                     >
                       <DeleteIcon />
                     </IconButton>
