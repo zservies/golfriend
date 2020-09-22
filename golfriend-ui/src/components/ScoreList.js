@@ -43,6 +43,7 @@ export default function ScoreList(props) {
               <TableCell className={classes.tableHead}>Score</TableCell>
               <TableCell className={classes.tableHead}>PAR</TableCell>
               <TableCell className={classes.tableHead}>Over/Under</TableCell>
+              <TableCell></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
