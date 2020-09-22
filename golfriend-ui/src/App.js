@@ -23,6 +23,15 @@ function App() {
     }
   };
 
+  const deleteScore = async (id) => {
+    try {
+      const result = await axios.delete("http://localhost:3003/scores/" + id);
+      fetchScores(); // Fetch new scores after successfully deleting.
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     fetchScores();
   }, []);
@@ -31,7 +40,7 @@ function App() {
     <div className="App">
       <div className="App-header">
         <ScoreInput createScore={createScore}></ScoreInput>
-        <ScoreList scores={scores}></ScoreList>
+        <ScoreList scores={scores} deleteScore={deleteScore}></ScoreList>
 
         {/* {scores && scores.map((scoreItem)=>(
           <ScoreItem key = {scoreItem.id} scoreItem={scoreItem}></ScoreItem>

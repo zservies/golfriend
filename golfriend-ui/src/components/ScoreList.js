@@ -30,7 +30,7 @@ export default function ScoreList(props) {
 
   // https://stackoverflow.com/questions/37771316/react-triggering-click-event-on-table-row
   const deleteScore = (scoreItem) => {
-    console.log(scoreItem.id);
+    props.deleteScore(scoreItem.id);
   };
 
   return (
