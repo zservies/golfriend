@@ -42,12 +42,12 @@ scoresRouter.delete("/scores/:id", async (req, res) => {
 // INSTEAD: Send current values in request body if not changed from UI. Basically update entire item.
 scoresRouter.put("/scores/:id", async (req, res) => {
   const id = req.params.id;
-  const scoreToPar = scoreHelper.scoreToPar(req.body.score, req.body.coursePar)
+  const scoreToPar = scoreHelper.scoreToPar(req.body.score, req.body.coursePar);
   const score = {
     course: req.body.course,
     score: req.body.score,
     coursePar: req.body.coursePar,
-    scoreToPar: scoreToPar
+    scoreToPar: scoreToPar,
   };
   try {
     const result = await Score.findByIdAndUpdate(id, score);
@@ -55,6 +55,6 @@ scoresRouter.put("/scores/:id", async (req, res) => {
   } catch (error) {
     res.status(400).send(error);
   }
-})
+});
 
 module.exports = scoresRouter;
