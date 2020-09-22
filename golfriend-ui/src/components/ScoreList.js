@@ -28,8 +28,9 @@ const useStyles = makeStyles({
 export default function ScoreList(props) {
   const classes = useStyles();
 
-  const deleteScore = (event) => {
-    console.log(event.target);
+  // https://stackoverflow.com/questions/37771316/react-triggering-click-event-on-table-row
+  const deleteScore = (scoreItem) => {
+    console.log(scoreItem.id);
   };
 
   return (
@@ -63,7 +64,7 @@ export default function ScoreList(props) {
                   <TableCell>
                     <IconButton
                       className={classes.deleteIcon}
-                      onClick={deleteScore}
+                      onClick={()=>deleteScore(scoreItem)}
                     >
                       <DeleteIcon />
                     </IconButton>
