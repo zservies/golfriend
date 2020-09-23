@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import ScoreInput from "./components/ScoreInput";
 import ScoreList from "./components/ScoreList";
+import Test from "./components/Test";
 
 function App() {
   const [scores, setScores] = useState([]);
@@ -36,15 +38,19 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <div className="App-header">
-        <ScoreInput createScore={createScore}></ScoreInput>
-        <ScoreList scores={scores} deleteScore={deleteScore}></ScoreList>
-        {/* {scores && scores.map((scoreItem)=>(
+    <Router>
+      <div className="App">
+        <div className="App-header">
+          <Route exact path="/">
+            <ScoreInput createScore={createScore}></ScoreInput>
+            <ScoreList scores={scores} deleteScore={deleteScore}></ScoreList>
+            {/* {scores && scores.map((scoreItem)=>(
           <ScoreItem key = {scoreItem.id} scoreItem={scoreItem}></ScoreItem>
         ))} */}
+          </Route>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
