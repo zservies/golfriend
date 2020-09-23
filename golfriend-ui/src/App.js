@@ -5,7 +5,7 @@ import ScoreInput from "./components/ScoreInput";
 import ScoreList from "./components/ScoreList";
 
 function App() {
-  const [scores, setScores] = useState("");
+  const [scores, setScores] = useState([]);
   const createScore = async (score) => {
     console.log(score);
     const result = await axios.post("http://localhost:3003/scores", score);
