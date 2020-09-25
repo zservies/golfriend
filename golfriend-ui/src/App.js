@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import ScoreInput from "./components/ScoreInput";
 import ScoreList from "./components/ScoreList";
-import EditScore from "./components/EditScore";
+import EditScoreModal from "./components/EditScoreModal";
 
 function App() {
   const [scores, setScores] = useState([]);
@@ -42,7 +42,7 @@ function App() {
       <div className="App">
         <div className="App-header">
           <Route exact path="/">
-            <EditScore></EditScore>
+            <EditScoreModal></EditScoreModal>
             <ScoreInput createScore={createScore}></ScoreInput>
             <ScoreList scores={scores} deleteScore={deleteScore}></ScoreList>
             {/* {scores && scores.map((scoreItem)=>(
