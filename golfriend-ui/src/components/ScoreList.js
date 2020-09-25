@@ -28,6 +28,18 @@ const useStyles = makeStyles({
 export default function ScoreList(props) {
   const classes = useStyles();
 
+  const tableHeader = (
+    <TableHead>
+      <TableRow>
+        <TableCell className={classes.tableHead}>Course</TableCell>
+        <TableCell className={classes.tableHead}>Score</TableCell>
+        <TableCell className={classes.tableHead}>PAR</TableCell>
+        <TableCell className={classes.tableHead}>Over/Under</TableCell>
+        <TableCell></TableCell>
+      </TableRow>
+    </TableHead>
+  );
+
   // https://stackoverflow.com/questions/37771316/react-triggering-click-event-on-table-row
   const deleteScore = (scoreItem) => {
     props.deleteScore(scoreItem.id);
@@ -42,18 +54,10 @@ export default function ScoreList(props) {
     <div>
       <TableContainer>
         <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell className={classes.tableHead}>Course</TableCell>
-              <TableCell className={classes.tableHead}>Score</TableCell>
-              <TableCell className={classes.tableHead}>PAR</TableCell>
-              <TableCell className={classes.tableHead}>Over/Under</TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          </TableHead>
+          {tableHeader}
           <TableBody>
             {props.scores &&
-              props.scores.map(scoreItem=>(
+              props.scores.map((scoreItem) => (
                 <TableRow key={scoreItem.id}>
                   <TableCell className={classes.tableCell}>
                     {scoreItem.course}
