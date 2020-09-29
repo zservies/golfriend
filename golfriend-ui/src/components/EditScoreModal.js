@@ -7,14 +7,33 @@ export default function EditScore(props) {
     margin: "auto",
     width: "35%",
     height: "50%",
-    background: "white",
-    textAlign: 'center'
+    background: "orange",
+    textAlign: "center",
   });
+  // Make these one object?
+  const [course, setCourse] = useState("");
+  const [score, setScore] = useState("");
+  const [coursePar, setCoursePar] = useState("");
+
+  const editScoreHandler = (event) => {
+    event.preventDefault();
+    let editedScore = {
+      course,
+      score,
+      coursePar
+    };
+    console.log(editedScore);
+  }
 
   const modalBody = (
     <div style={modalStyle}>
       <h2>Edit Values</h2>
-      <p>Edit some values</p>
+      <form onSubmit={editScoreHandler}>
+        <input onChange={(event)=>setCourse(event.target.value)} type="text" placeholder="Course"></input>
+        <input onChange={(event)=>setScore(event.target.value)} type="text" placeholder="Score" />
+        <input onChange={(event)=>setCoursePar(event.target.value)} type="text" placeholder="PAR" />
+        <button type="submit">submit</button>
+      </form>
     </div>
   );
   const handleOpen = () => {
