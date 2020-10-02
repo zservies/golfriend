@@ -72,7 +72,10 @@ export default function ScoreList(props) {
                     {scoreItem.scoreToPar}
                   </TableCell>
                   <TableCell>
-                    <EditScoreModal scoreItem={scoreItem} editScore={editScore} />
+                    <EditScoreModal
+                      scoreItem={scoreItem}
+                      editScore={editScore}
+                    />
                   </TableCell>
                   <TableCell>
                     <IconButton

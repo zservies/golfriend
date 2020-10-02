@@ -38,8 +38,7 @@ scoresRouter.delete("/scores/:id", async (req, res) => {
   }
 });
 
-// TODO: Add ability to update score/PAR and have Over/Under updated too.
-// INSTEAD: Send current values in request body if not changed from UI. Basically update entire item.
+// NOTE: Sending current values in request body from UI even if not updated. Basically update entire item every update.
 scoresRouter.put("/scores/:id", async (req, res) => {
   const id = req.params.id;
   const scoreToPar = scoreHelper.scoreToPar(req.body.score, req.body.coursePar);

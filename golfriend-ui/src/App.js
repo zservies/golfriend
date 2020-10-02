@@ -56,7 +56,11 @@ function App() {
         <div className="App-header">
           <Route exact path="/">
             <ScoreInput createScore={createScore}></ScoreInput>
-            <ScoreList scores={scores} editScore={editScore} deleteScore={deleteScore}></ScoreList>
+            <ScoreList
+              scores={scores}
+              editScore={editScore}
+              deleteScore={deleteScore}
+            ></ScoreList>
             {/* {scores && scores.map((scoreItem)=>(
           <ScoreItem key = {scoreItem.id} scoreItem={scoreItem}></ScoreItem>
         ))} */}
