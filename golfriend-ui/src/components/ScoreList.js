@@ -47,7 +47,7 @@ export default function ScoreList(props) {
 
   // Not making functional until edit UX/architecture is determined.
   const editScore = (scoreItem) => {
-    console.log(scoreItem.id);
+    console.log(scoreItem);
   };
 
   return (
@@ -72,7 +72,7 @@ export default function ScoreList(props) {
                     {scoreItem.scoreToPar}
                   </TableCell>
                   <TableCell>
-                    <EditScoreModal></EditScoreModal>
+                    <EditScoreModal scoreId={scoreItem.id} editScore={editScore} />
                   </TableCell>
                   <TableCell>
                     <IconButton

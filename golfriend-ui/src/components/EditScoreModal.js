@@ -28,11 +28,12 @@ export default function EditScore(props) {
   const editScoreHandler = (event) => {
     event.preventDefault();
     let editedScore = {
+      id: props.scoreId, //Capturing ID from the scoreId sent from ScoreList component and setting it up in the edited object.
       course,
       score,
       coursePar,
     };
-    console.log(editedScore);
+    props.editScore(editedScore);
   };
 
   const modalBody = (
