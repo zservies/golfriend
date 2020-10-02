@@ -34,6 +34,7 @@ export default function EditScore(props) {
       coursePar,
     };
     props.editScore(editedScore);
+    setOpen(false); // Closing modal after submission. Maybe change to display success/fail message in future.
   };
 
   const modalBody = (
