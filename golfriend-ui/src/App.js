@@ -33,6 +33,19 @@ function App() {
     }
   };
 
+  const editScore = async (editedScore) => {
+    console.log(editedScore);
+    try {
+      await axios.put(
+        "http://localhost:3003/scores/" + editedScore.id,
+        editedScore
+      );
+      fetchScores();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchScores();
   }, []);
@@ -43,7 +56,7 @@ function App() {
         <div className="App-header">
           <Route exact path="/">
             <ScoreInput createScore={createScore}></ScoreInput>
-            <ScoreList scores={scores} deleteScore={deleteScore}></ScoreList>
+            <ScoreList scores={scores} editScore={editScore} deleteScore={deleteScore}></ScoreList>
             {/* {scores && scores.map((scoreItem)=>(
           <ScoreItem key = {scoreItem.id} scoreItem={scoreItem}></ScoreItem>
         ))} */}

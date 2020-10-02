@@ -21,14 +21,14 @@ export default function EditScore(props) {
     textAlign: "center",
   });
   // Make these one object?
-  const [course, setCourse] = useState("");
-  const [score, setScore] = useState("");
-  const [coursePar, setCoursePar] = useState("");
+  const [course, setCourse] = useState(props.scoreItem.course);
+  const [score, setScore] = useState(props.scoreItem.score);
+  const [coursePar, setCoursePar] = useState(props.scoreItem.coursePar);
 
   const editScoreHandler = (event) => {
     event.preventDefault();
     let editedScore = {
-      id: props.scoreId, //Capturing ID from the scoreId sent from ScoreList component and setting it up in the edited object.
+      id: props.scoreItem.id, //Capturing ID from the scoreId sent from ScoreList component and setting it up in the edited object.
       course,
       score,
       coursePar,
@@ -43,17 +43,17 @@ export default function EditScore(props) {
         <input
           onChange={(event) => setCourse(event.target.value)}
           type="text"
-          placeholder="Course"
+          placeholder={course}
         ></input>
         <input
-          onChange={(event) => setScore(event.target.value)}
+          onChange={(event) => setScore(Number(event.target.value))}
           type="text"
-          placeholder="Score"
+          placeholder={score}
         />
         <input
-          onChange={(event) => setCoursePar(event.target.value)}
+          onChange={(event) => setCoursePar(Number(event.target.value))}
           type="text"
-          placeholder="PAR"
+          placeholder={coursePar}
         />
         <button type="submit">submit</button>
       </form>
