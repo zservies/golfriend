@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import Modal from "@material-ui/core/Modal";
+import IconButton from "@material-ui/core/IconButton";
+import EditIcon from "@material-ui/icons/Edit";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  iconButton: {
+    color: "grey",
+  },
+});
 
 export default function EditScore(props) {
+  const classes = useStyles();
   const [openModal, setOpen] = useState(false);
   const [modalStyle] = useState({
     margin: "auto",
@@ -20,18 +30,30 @@ export default function EditScore(props) {
     let editedScore = {
       course,
       score,
-      coursePar
+      coursePar,
     };
     console.log(editedScore);
-  }
+  };
 
   const modalBody = (
     <div style={modalStyle}>
       <h2>Edit Values</h2>
       <form onSubmit={editScoreHandler}>
-        <input onChange={(event)=>setCourse(event.target.value)} type="text" placeholder="Course"></input>
-        <input onChange={(event)=>setScore(event.target.value)} type="text" placeholder="Score" />
-        <input onChange={(event)=>setCoursePar(event.target.value)} type="text" placeholder="PAR" />
+        <input
+          onChange={(event) => setCourse(event.target.value)}
+          type="text"
+          placeholder="Course"
+        ></input>
+        <input
+          onChange={(event) => setScore(event.target.value)}
+          type="text"
+          placeholder="Score"
+        />
+        <input
+          onChange={(event) => setCoursePar(event.target.value)}
+          type="text"
+          placeholder="PAR"
+        />
         <button type="submit">submit</button>
       </form>
     </div>
@@ -44,7 +66,9 @@ export default function EditScore(props) {
   };
   return (
     <div>
-      <button onClick={handleOpen}>Open</button>
+      <IconButton className={classes.iconButton} onClick={handleOpen}>
+        <EditIcon />
+      </IconButton>
       <Modal
         style={{
           display: "flex",

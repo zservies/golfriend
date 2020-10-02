@@ -42,7 +42,6 @@ function App() {
       <div className="App">
         <div className="App-header">
           <Route exact path="/">
-            <EditScoreModal></EditScoreModal>
             <ScoreInput createScore={createScore}></ScoreInput>
             <ScoreList scores={scores} deleteScore={deleteScore}></ScoreList>
             {/* {scores && scores.map((scoreItem)=>(
