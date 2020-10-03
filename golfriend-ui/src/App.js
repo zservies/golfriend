@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import ScoreInput from "./components/ScoreInput";
 import ScoreList from "./components/ScoreList";
-import EditScoreModal from "./components/EditScoreModal";
 
 function App() {
   const [scores, setScores] = useState([]);
