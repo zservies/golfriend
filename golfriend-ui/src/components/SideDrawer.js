@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import HomeIcon from "@material-ui/icons/Home";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import MenuIcon from "@material-ui/icons/Menu";
 
-const drawerWidth = 240;
+const drawerWidth = 150;
 const useStyles = makeStyles((theme) => ({
   hide: {
     display: "none",
@@ -13,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: "nowrap"
+    whiteSpace: "nowrap",
   },
   drawerOpen: {
     background: "#010205",
@@ -39,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  iconButton: {
+    color: "white",
+  },
 }));
 
 export default function SideDrawer(props) {
@@ -50,8 +56,6 @@ export default function SideDrawer(props) {
   };
   return (
     <div>
-          <CssBaseline />
-      <button onClick={handleDrawer}>open</button>
       <Drawer
         variant="permanent"
         className={clsx(classes.drawer, classes.paper, {
@@ -65,7 +69,16 @@ export default function SideDrawer(props) {
           }),
         }}
       >
+        <IconButton onClick={handleDrawer} className={classes.iconButton}>
+          <MenuIcon />
+        </IconButton>
         <Divider />
+        <IconButton className={classes.iconButton}>
+          <HomeIcon />
+        </IconButton>
+        <IconButton className={classes.iconButton}>
+          <DashboardIcon />
+        </IconButton>
       </Drawer>
     </div>
   );
