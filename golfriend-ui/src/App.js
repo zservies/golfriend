@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import ScoreInput from "./components/ScoreInput";
 import ScoreList from "./components/ScoreList";
+import SideDrawer from "./components/SideDrawer";
 
 function App() {
   const [scores, setScores] = useState([]);
@@ -53,6 +54,7 @@ function App() {
     <Router>
       <div className="App">
         <div className="App-header">
+        <SideDrawer></SideDrawer>
           <Route exact path="/">
             <ScoreInput createScore={createScore}></ScoreInput>
             <ScoreList
