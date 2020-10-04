@@ -60,9 +60,6 @@ function App() {
               editScore={editScore}
               deleteScore={deleteScore}
             ></ScoreList>
-            {/* {scores && scores.map((scoreItem)=>(
-          <ScoreItem key = {scoreItem.id} scoreItem={scoreItem}></ScoreItem>
-        ))} */}
           </Route>
         </div>
       </div>
