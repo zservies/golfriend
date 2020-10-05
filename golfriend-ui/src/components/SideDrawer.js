@@ -10,6 +10,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 200;
 const useStyles = makeStyles((theme) => ({
@@ -73,18 +74,22 @@ export default function SideDrawer(props) {
         </ListItem>
         <Divider />
         <List>
-          <ListItem button className={classes.iconButton}>
-            <HomeIcon />
-            <ListItemText className={clsx({ [classes.hide]: !open })}>
-              Home
-            </ListItemText>
-          </ListItem>
-          <ListItem button className={classes.iconButton}>
-            <DashboardIcon />
-            <ListItemText className={clsx({ [classes.hide]: !open })}>
-              Scores
-            </ListItemText>
-          </ListItem>
+          <Link to="/">
+            <ListItem button className={classes.iconButton}>
+              <HomeIcon />
+              <ListItemText className={clsx({ [classes.hide]: !open })}>
+                Home
+              </ListItemText>
+            </ListItem>
+          </Link>
+          <Link to="/dashboard">
+            <ListItem button className={classes.iconButton}>
+              <DashboardIcon />
+              <ListItemText className={clsx({ [classes.hide]: !open })}>
+                Scores
+              </ListItemText>
+            </ListItem>
+          </Link>
         </List>
       </Drawer>
     </div>

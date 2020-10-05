@@ -5,6 +5,7 @@ import "./App.css";
 import ScoreInput from "./components/ScoreInput";
 import ScoreList from "./components/ScoreList";
 import SideDrawer from "./components/SideDrawer";
+import Landing from "./components/Landing";
 
 function App() {
   const [scores, setScores] = useState([]);
@@ -55,7 +56,10 @@ function App() {
       <div className="App">
         <div className="App-header">
         <SideDrawer></SideDrawer>
-          <Route exact path="/">
+        <Route exact path = "/">
+          <Landing></Landing>
+        </Route>
+          <Route exact path="/dashboard">
             <ScoreInput createScore={createScore}></ScoreInput>
             <ScoreList
               scores={scores}
