@@ -3,16 +3,16 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
 import HomeIcon from "@material-ui/icons/Home";
 import DashboardIcon from "@material-ui/icons/Dashboard";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import MenuIcon from "@material-ui/icons/Menu";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import List from "@material-ui/core/List";
 
-const drawerWidth = 150;
+const drawerWidth = 200;
 const useStyles = makeStyles((theme) => ({
-  hide: {
-    display: "none",
-  },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
@@ -38,12 +38,11 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(9) + 1,
     },
   },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
   iconButton: {
     color: "white",
+  },
+  hide: {
+    visibility: "hidden",
   },
 }));
 
@@ -69,16 +68,24 @@ export default function SideDrawer(props) {
           }),
         }}
       >
-        <IconButton onClick={handleDrawer} className={classes.iconButton}>
-          <MenuIcon />
-        </IconButton>
+        <ListItem button onClick={handleDrawer} className={classes.iconButton}>
+          {!open ? <MenuIcon /> : <ChevronLeftIcon />}
+        </ListItem>
         <Divider />
-        <IconButton className={classes.iconButton}>
-          <HomeIcon />
-        </IconButton>
-        <IconButton className={classes.iconButton}>
-          <DashboardIcon />
-        </IconButton>
+        <List>
+          <ListItem button className={classes.iconButton}>
+            <HomeIcon />
+            <ListItemText className={clsx({ [classes.hide]: !open })}>
+              Home
+            </ListItemText>
+          </ListItem>
+          <ListItem button className={classes.iconButton}>
+            <DashboardIcon />
+            <ListItemText className={clsx({ [classes.hide]: !open })}>
+              Scores
+            </ListItemText>
+          </ListItem>
+        </List>
       </Drawer>
     </div>
   );
