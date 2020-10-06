@@ -4,6 +4,7 @@ const scoreHelper = require("../utils/score_helper");
 
 scoresRouter.get("/scores", async (req, res) => {
   const scores = await Score.find({});
+  scores.push(scoreHelper.totalAverage(scores));
   res.json(scores);
 });
 
