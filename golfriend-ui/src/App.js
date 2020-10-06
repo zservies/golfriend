@@ -19,6 +19,7 @@ function App() {
   const fetchScores = async () => {
     try {
       const result = await axios.get("http://localhost:3003/scores");
+      result.data.pop(); // Removing averages' object from score array
       setScores(result.data);
     } catch (error) {
       setScores([]);
