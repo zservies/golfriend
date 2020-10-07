@@ -9,6 +9,7 @@ import Landing from "./components/Landing";
 
 function App() {
   const [scores, setScores] = useState([]);
+  const [averages, setAverages] = useState({});
   const createScore = async (score) => {
     console.log(score);
     const result = await axios.post("http://localhost:3003/scores", score);
@@ -19,7 +20,9 @@ function App() {
   const fetchScores = async () => {
     try {
       const result = await axios.get("http://localhost:3003/scores");
+      const averagesObj = result.data[result.data.length - 1] // Grabbing last item from array (always the averages).
       result.data.pop(); // Removing averages' object from score array
+      setAverages(averagesObj); // Setting averages state.
       setScores(result.data);
     } catch (error) {
       setScores([]);
@@ -58,7 +61,7 @@ function App() {
         <div className="App-header">
         <SideDrawer></SideDrawer>
         <Route exact path = "/">
-          <Landing></Landing>
+          <Landing averages={averages}></Landing>
         </Route>
           <Route exact path="/dashboard">
             <ScoreInput createScore={createScore}></ScoreInput>
