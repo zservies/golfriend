@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-import ScoreInput from "./components/ScoreDashboard/ScoreInput";
-import ScoreList from "./components/ScoreDashboard/ScoreList";
 import SideDrawer from "./components/SideDrawer";
 import Landing from "./components/Landing";
-import AveragesToolbar from "./components/ScoreDashboard/AveragesToolbar";
+import ScoreDashboard from "./components/ScoreDashboard/ScoreDashboard";
 
 function App() {
   const [scores, setScores] = useState([]);
@@ -65,13 +63,13 @@ function App() {
             <Landing></Landing>
           </Route>
           <Route exact path="/dashboard">
-            <AveragesToolbar averages={averages}></AveragesToolbar>
-            <ScoreInput createScore={createScore}></ScoreInput>
-            <ScoreList
+            <ScoreDashboard
+              averages={averages}
+              createScore={createScore}
               scores={scores}
               editScore={editScore}
               deleteScore={deleteScore}
-            ></ScoreList>
+            ></ScoreDashboard>
           </Route>
         </div>
       </div>
