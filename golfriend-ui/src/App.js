@@ -21,7 +21,7 @@ function App() {
   const fetchScores = async () => {
     try {
       const result = await axios.get("http://localhost:3003/scores");
-      const averagesObj = result.data[result.data.length - 1] // Grabbing last item from array (always the averages).
+      const averagesObj = result.data[result.data.length - 1]; // Grabbing last item from array (always the averages).
       result.data.pop(); // Removing averages' object from score array
       setAverages(averagesObj); // Setting averages state.
       setScores(result.data);
@@ -60,12 +60,12 @@ function App() {
     <Router>
       <div className="App">
         <div className="App-header">
-        <SideDrawer></SideDrawer>
-        <Route exact path = "/">
-          <Landing averages={averages}></Landing>
-        </Route>
+          <SideDrawer></SideDrawer>
+          <Route exact path="/">
+            <Landing></Landing>
+          </Route>
           <Route exact path="/dashboard">
-          <AveragesToolbar></AveragesToolbar>
+            <AveragesToolbar averages={averages}></AveragesToolbar>
             <ScoreInput createScore={createScore}></ScoreInput>
             <ScoreList
               scores={scores}
