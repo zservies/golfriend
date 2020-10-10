@@ -17,7 +17,7 @@ export default function EditScore(props) {
     margin: "auto",
     width: "35%",
     height: "50%",
-    background: "orange",
+    background: "grey",
     textAlign: "center",
   });
   // Make these one object?
