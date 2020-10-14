@@ -27,6 +27,8 @@ const scoresSchema = mongoose.Schema({
   }
 });
 
+// TODO: Add dates to scores.
+
 scoresSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString(); // Converting ID to string and reassigning to id instead of _id.
