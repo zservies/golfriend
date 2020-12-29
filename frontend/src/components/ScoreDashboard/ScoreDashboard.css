@@ -1,0 +1,25 @@
+.dashboard-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr 1fr;
+  grid-gap: 1em;
+  height: 100%;
+}
+
+.dashboard-widget {
+  background-color: white;
+  border-radius: 20px;
+  padding: 2%;
+}
+.dashboard-header {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.dashboard-summary {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: #5B5A63;
+  border-radius: 20px;
+  color: white;
+  padding: 1%;
+}

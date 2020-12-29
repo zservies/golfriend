@@ -56,12 +56,13 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <div className="App-header">
-          <SideDrawer></SideDrawer>
+      <div className="app-wrapper">
+        <div className="content-column">
           <Route exact path="/">
             <Landing></Landing>
           </Route>
+        </div>
+        <div className="content-column-2">
           <Route exact path="/dashboard">
             <ScoreDashboard
               averages={averages}
