@@ -3,6 +3,7 @@ import AveragesToolbar from "./AveragesToolbar";
 import ScoreInput from "./ScoreInput";
 import ScoreList from "./ScoreList";
 import "./ScoreDashboard.css";
+import ScoreChart from './ScoreChart';
 
 export default function ScoreDashboard(props) {
   return (
@@ -14,7 +15,7 @@ export default function ScoreDashboard(props) {
         {/* <AveragesToolbar averages={props.averages}></AveragesToolbar>
         <ScoreInput createScore={props.createScore}></ScoreInput> */}
         <div class="summary-content">
-
+          <ScoreChart></ScoreChart>
         </div>
       </div>
       <div className="dashboard-widget">
