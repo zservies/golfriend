@@ -1,7 +1,7 @@
 .dashboard-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto 1fr 1fr;
+  grid-template-rows: 0fr 0.5fr 0.5fr;
   grid-gap: 1em;
   height: 100%;
 }
@@ -10,10 +10,7 @@
   background-color: white;
   border-radius: 20px;
   padding: 2%;
-}
-.dashboard-header {
-  grid-column-start: 1;
-  grid-column-end: 3;
+  overflow: auto;
 }
 .dashboard-summary {
   grid-column-start: 1;

@@ -11,21 +11,18 @@ export default function ScoreDashboard(props) {
         <h1>Dashboard</h1>
       </div>
       <div className="dashboard-summary">
-        <AveragesToolbar averages={props.averages}></AveragesToolbar>
-      <ScoreInput createScore={props.createScore}></ScoreInput>
-      <ScoreList
-        scores={props.scores}
-        editScore={props.editScore}
-        deleteScore={props.deleteScore}
-      ></ScoreList>
+        {/* <AveragesToolbar averages={props.averages}></AveragesToolbar>
+        <ScoreInput createScore={props.createScore}></ScoreInput> */}
+        <div class="summary-content">
+
+        </div>
       </div>
       <div className="dashboard-widget">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nam
-        quibusdam doloribus voluptates? Autem omnis quasi amet doloribus
-        praesentium labore commodi saepe. Dignissimos alias, reiciendis suscipit
-        tenetur illum saepe delectus nemo! Beatae amet corrupti esse at aut
-        fugit, dignissimos est dolore alias, neque soluta, minima error
-        voluptates! Totam molestias ab magni quaerat nisi rerum distinctio?
+      <ScoreList
+            scores={props.scores}
+            editScore={props.editScore}
+            deleteScore={props.deleteScore}
+          ></ScoreList>
       </div>
       <div className="dashboard-widget">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe eum
