@@ -25,7 +25,7 @@ export default function ScoreChart(props) {
   ];
   return (
     <div className="chart-wrapper">
-      <XYPlot width={900} height={300}>
+      <XYPlot width={750} height={300}>
         <VerticalGridLines />
         <HorizontalGridLines />
         <XAxis />

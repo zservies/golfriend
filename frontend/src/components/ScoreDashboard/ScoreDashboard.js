@@ -15,7 +15,6 @@ export default function ScoreDashboard(props) {
         {/* <AveragesToolbar averages={props.averages}></AveragesToolbar>
         <ScoreInput createScore={props.createScore}></ScoreInput> */}
         <div class="summary-content">
-          <ScoreChart></ScoreChart>
         </div>
       </div>
       <div className="dashboard-widget">
@@ -26,13 +25,7 @@ export default function ScoreDashboard(props) {
           ></ScoreList>
       </div>
       <div className="dashboard-widget">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe eum
-        similique, magni ipsum recusandae a provident id aliquam nobis. Quasi
-        odio ipsam veniam expedita minus sapiente quisquam sint perferendis
-        consequatur, molestias dolores adipisci unde doloribus hic officia quia!
-        Esse error pariatur enim ex officia aliquam? Placeat dolorem alias,
-        temporibus iusto excepturi accusamus tempora officiis ab ea optio
-        architecto dolores et?
+        <ScoreChart />
       </div>
     </div>
   );
