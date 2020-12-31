@@ -72,6 +72,20 @@ export default function ScoreList(props) {
                   <TableCell>{scoreItem.score}</TableCell>
                   <TableCell>{scoreItem.coursePar}</TableCell>
                   <TableCell>{scoreItem.scoreToPar}</TableCell>
+                  <TableCell>
+                    <EditScoreModal
+                      scoreItem={scoreItem}
+                      editScore={editScore}
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <IconButton
+                      className={classes.iconButton}
+                      onClick={() => deleteScore(scoreItem)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  </TableCell>
                 </TableRow>
               ))}
           </TableBody>
