@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-import SideDrawer from "./components/SideDrawer";
 import Landing from "./components/Landing";
 import ScoreDashboard from "./components/ScoreDashboard/ScoreDashboard";
 

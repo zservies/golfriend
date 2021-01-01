@@ -1,7 +1,9 @@
 .app-wrapper {
   display: grid;
   grid-template-columns: 12% 88%;
-  height: 100vh;}
+  grid-template-rows: minmax(0, 1fr);
+  height: 100vh;
+}
 
 .content-column-2 {
   background-color: #f0f0ef;

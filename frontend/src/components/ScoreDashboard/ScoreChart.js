@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./ScoreChart.css";
 import {
   XYPlot,
-  LineSeries,
   VerticalGridLines,
   HorizontalGridLines,
   XAxis,
@@ -11,25 +10,18 @@ import {
 } from "react-vis";
 
 export default function ScoreChart(props) {
-  const data = [
-    { x: 0, y: 33 },
-    { x: 1, y: 43 },
-    { x: 2, y: 42 },
-    { x: 3, y: 42 },
-    { x: 4, y: 42 },
-    { x: 5, y: 44 },
-    { x: 6, y: 41 },
-    { x: 7, y: 48 },
-    { x: 8, y: 43 },
-    { x: 9, y: 45 },
-  ];
+  const data = [];
+  const chartArr = props.scores.slice(-5); //Grab only the most recent ten rounds played.
+  chartArr.forEach((scoreItem, index) => {
+    data.push({ x: index, y: scoreItem.score });
+  });
   return (
     <div className="chart-wrapper">
-      <XYPlot width={750} height={300}>
+      <XYPlot xDomain={[0,4]} yDomain={[35,60]} width={750} height={300}>
         <VerticalGridLines />
         <HorizontalGridLines />
-        <XAxis />
-        <YAxis />
+        <XAxis title="Date" />
+        <YAxis title="Score" />
         <LineMarkSeries
           lineStyle={{ stroke: "black" }}
           markStyle={{ stroke: "black" }}

@@ -3,9 +3,11 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
 import styled from "styled-components";
+import "./ScoreInput.css";
 
 const StyledTextField = styled(TextField)`
-  .MuiInputBase-input, .MuiFormLabel-root {
+  .MuiInputBase-input,
+  .MuiFormLabel-root {
     color: white;
     &.Mui-focused {
       color: white;
@@ -31,35 +33,43 @@ export default function ScoreInput(props) {
     props.createScore(scoreSubmission);
   };
   return (
-    <div>
+    <div className="quick-input-wrapper">
       <form noValidate autoComplete="off" onSubmit={submitScore}>
-        <StyledTextField
-          onChange={(event) => setCourse(event.target.value)}
-          id="outlined-basic"
-          label="Course name"
-          variant="outlined"
-        />
-        <StyledTextField
-          onChange={(event) => setScore(event.target.value)}
-          id="outlined-basic"
-          label="Score"
-          variant="outlined"
-        />
-        <StyledTextField
-          onChange={(event) => setCoursePar(event.target.value)}
-          id="outlined-basic"
-          label="Course PAR"
-          variant="outlined"
-        />
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          startIcon={<SaveIcon />}
-          type="submit"
-        >
-          Save
-        </Button>
+        <div className="input">
+          <StyledTextField
+            onChange={(event) => setCourse(event.target.value)}
+            id="outlined-basic"
+            label="Course name"
+            variant="outlined"
+          />
+        </div>
+        <div className="input">
+          <StyledTextField
+            onChange={(event) => setScore(event.target.value)}
+            id="outlined-basic"
+            label="Score"
+            variant="outlined"
+          />
+        </div>
+        <div className="input">
+          <StyledTextField
+            onChange={(event) => setCoursePar(event.target.value)}
+            id="outlined-basic"
+            label="Course PAR"
+            variant="outlined"
+          />
+        </div>
+        <div className="input">
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            startIcon={<SaveIcon />}
+            type="submit"
+          >
+            Save
+          </Button>
+        </div>
       </form>
     </div>
   );
