@@ -6,7 +6,7 @@ import styled from "styled-components";
 import "./ScoreInput.css";
 
 const StyledTextField = styled(TextField)`
-  .MuiInputBase-input,
+.MuiInputBase-input,
   .MuiFormLabel-root {
     color: white;
     &.Mui-focused {
@@ -15,10 +15,11 @@ const StyledTextField = styled(TextField)`
   }
   .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: white;
-  }
+  } 
 `;
 
 export default function ScoreInput(props) {
+  // TODO: Cleanup states and consolidate into one state object?
   const [course, setCourse] = useState("");
   const [score, setScore] = useState("");
   const [coursePar, setCoursePar] = useState("");
@@ -35,30 +36,57 @@ export default function ScoreInput(props) {
   return (
     <div className="quick-input-wrapper">
       <form noValidate autoComplete="off" onSubmit={submitScore}>
-        <div className="input">
-          <StyledTextField
-            onChange={(event) => setCourse(event.target.value)}
-            id="outlined-basic"
-            label="Course name"
-            variant="outlined"
-          />
+        <div className="required-inputs">
+          <div className="input">
+            <StyledTextField
+              onChange={(event) => setCourse(event.target.value)}
+              id="outlined-basic"
+              label="Course name"
+              variant="outlined"
+            />
+          </div>
+          <div className="input">
+            <StyledTextField
+              onChange={(event) => setScore(event.target.value)}
+              id="outlined-basic"
+              label="Score"
+              variant="outlined"
+            />
+          </div>
+          <div className="input">
+            <StyledTextField
+              onChange={(event) => setCoursePar(event.target.value)}
+              id="outlined-basic"
+              label="Course PAR"
+              variant="outlined"
+            />
+          </div>
         </div>
-        <div className="input">
-          <StyledTextField
-            onChange={(event) => setScore(event.target.value)}
-            id="outlined-basic"
-            label="Score"
-            variant="outlined"
-          />
+        <div className="optional-inputs">
+          <div className="input">
+            <StyledTextField
+              onChange={(event) => setCourse(event.target.value)}
+              id="outlined-basic"
+              label="Greens in Regulation"
+              variant="outlined"
+            />
+          </div>
+          <div className="input">
+            <StyledTextField
+              id="outlined-basic"
+              label="Fairways Hit"
+              variant="outlined"
+            />
+          </div>
+          <div className="input">
+            <StyledTextField
+              id="outlined-basic"
+              label="No. of Putts"
+              variant="outlined"
+            />
+          </div>
         </div>
-        <div className="input">
-          <StyledTextField
-            onChange={(event) => setCoursePar(event.target.value)}
-            id="outlined-basic"
-            label="Course PAR"
-            variant="outlined"
-          />
-        </div>
+
         <div className="input">
           <Button
             variant="contained"
