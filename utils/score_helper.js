@@ -1,12 +1,12 @@
 const scoreToPar = (score, par) => {
-  let scoreToPar = score - par;
+  let scoreToPar = Math.round(score - par);
   if (scoreToPar > 0) {
     scoreToPar = "+" + scoreToPar;
   } else if (scoreToPar === 0) {
     scoreToPar = "E";
   }
 
-  return Math.round(scoreToPar);
+  return scoreToPar;
 };
 
 const totalAverage = (scores) => {
