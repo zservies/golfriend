@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import ".././src/styles/App.css";
 import Landing from "./components/Landing";
 import ScoreDashboard from "./components/ScoreDashboard/ScoreDashboard";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const [scores, setScores] = useState([]);
@@ -57,11 +58,12 @@ function App() {
     <Router>
       <div className="app-wrapper">
         <div className="content-column">
+          <Sidebar></Sidebar>
+        </div>
+        <div className="content-column-2">
           <Route exact path="/">
             <Landing></Landing>
           </Route>
-        </div>
-        <div className="content-column-2">
           <Route exact path="/dashboard">
             <ScoreDashboard
               averages={averages}
