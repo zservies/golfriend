@@ -12,11 +12,11 @@ export default function ScoreDashboard(props) {
       <div className="dashboard-header">
         <h1>Dashboard</h1>
       </div>
-      <div className="dashboard-summary">
-        <div className="summary-content">
-          <ScoreSummary></ScoreSummary>
-          <ScoreInput createScore={props.createScore}></ScoreInput>
-        </div>
+      <div id="score-summary" className="dashboard-widget">
+        <ScoreSummary></ScoreSummary>
+      </div>
+      <div id="quick-add" className="dashboard-widget">
+        <ScoreInput></ScoreInput>
       </div>
       <div className="dashboard-widget">
         <ScoreList
