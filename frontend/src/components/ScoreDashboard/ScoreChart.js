@@ -17,6 +17,7 @@ export default function ScoreChart(props) {
   });
   return (
     <div className="chart-wrapper">
+      <h2 className="score-chart-title">Recent Trend</h2>
       <XYPlot xDomain={[0, 4]} yDomain={[35, 60]} width={650} height={300}>
         <VerticalGridLines />
         <HorizontalGridLines />
