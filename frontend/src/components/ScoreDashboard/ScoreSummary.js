@@ -1,19 +1,8 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import { makeStyles } from "@material-ui/core/styles";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import "./ScoreSummary.css";
 
-const useStyles = makeStyles({
-  root: {
-    width: "150px",
-    minHeight: "150px",
-    backgroundColor: "#f0f0ef",
-  },
-});
-
 export default function ScoreSummary(props) {
-  const classes = useStyles();
 
   return (
     <div className="score-summary-wrapper">
@@ -22,7 +11,7 @@ export default function ScoreSummary(props) {
         <div className="card">
           <div className="card-content">
             <h1>
-              44 <ArrowUpwardIcon />
+              {props.averages.averageScore} <ArrowUpwardIcon />
             </h1>
             <p>average score</p>
           </div>
@@ -30,7 +19,7 @@ export default function ScoreSummary(props) {
         <div className="card">
           <div className="card-content">
             <h1>
-              +3 <ArrowUpwardIcon />
+              {props.averages.scoreToPar} <ArrowUpwardIcon />
             </h1>
             <p>Average Over/Under</p>
           </div>
@@ -38,7 +27,7 @@ export default function ScoreSummary(props) {
         <div className="card">
           <div className="card-content">
             <h1>
-              44 <ArrowUpwardIcon />
+              {props.averages.totalRounds}
             </h1>
             <p>Rounds Played</p>
           </div>

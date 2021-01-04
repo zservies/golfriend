@@ -13,7 +13,7 @@ export default function ScoreDashboard(props) {
         <h1>Dashboard</h1>
       </div>
       <div id="score-summary" className="dashboard-widget">
-        <ScoreSummary></ScoreSummary>
+        <ScoreSummary averages={props.averages}></ScoreSummary>
       </div>
       <div id="quick-add" className="dashboard-widget">
         <ScoreInput></ScoreInput>
