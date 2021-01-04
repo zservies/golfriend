@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../../styles/ScoreChart.css";
 import {
   XYPlot,
@@ -17,7 +17,7 @@ export default function ScoreChart(props) {
   });
   return (
     <div className="chart-wrapper">
-      <XYPlot xDomain={[0,4]} yDomain={[35,60]} width={650} height={300}>
+      <XYPlot xDomain={[0, 4]} yDomain={[35, 60]} width={650} height={300}>
         <VerticalGridLines />
         <HorizontalGridLines />
         <XAxis title="Date" />
