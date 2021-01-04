@@ -1,5 +1,5 @@
 const scoreToPar = (score, par) => {
-  let scoreToPar = score - par;
+  let scoreToPar = Math.round(score - par);
   if (scoreToPar > 0) {
     scoreToPar = "+" + scoreToPar;
   } else if (scoreToPar === 0) {
@@ -20,9 +20,10 @@ const totalAverage = (scores) => {
   let averagePar =
     score.par.reduce((total, currentValue) => total + currentValue) / count;
   let averages = {
-    averageScore,
-    averagePar,
+    averageScore: Math.round(averageScore),
+    averagePar: Math.round(averagePar),
     scoreToPar: scoreToPar(averageScore, averagePar),
+    totalRounds: count
   };
   return averages;
 };

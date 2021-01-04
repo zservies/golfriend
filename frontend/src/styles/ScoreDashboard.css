@@ -1,0 +1,42 @@
+.dashboard-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 0fr 0.5fr 0.5fr;
+  grid-gap: 1em;
+  height: 100%;
+}
+
+.dashboard-widget {
+  background-color: white;
+  border-radius: 20px;
+  padding: 2%;
+  overflow: auto;
+}
+.dashboard-summary {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: #5b5a63;
+  border-radius: 20px;
+  color: white;
+  padding: 1%;
+  overflow: auto;
+}
+
+.summary-content {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.dashboard-header {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#quick-add {
+  background-color: #5b5a63;
+}
+
+#score-summary {
+  background-color: #5b5a63;
+}

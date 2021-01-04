@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
-import SideDrawer from "./components/SideDrawer";
+import ".././src/styles/App.css";
 import Landing from "./components/Landing";
 import ScoreDashboard from "./components/ScoreDashboard/ScoreDashboard";
 
@@ -56,12 +55,13 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <div className="App-header">
-          <SideDrawer></SideDrawer>
+      <div className="app-wrapper">
+        <div className="content-column">
           <Route exact path="/">
             <Landing></Landing>
           </Route>
+        </div>
+        <div className="content-column-2">
           <Route exact path="/dashboard">
             <ScoreDashboard
               averages={averages}

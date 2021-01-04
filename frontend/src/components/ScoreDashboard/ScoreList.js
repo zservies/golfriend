@@ -23,22 +23,13 @@ const useStyles = makeStyles({
   iconButton: {
     color: "grey",
   },
+  table: {
+    maxHeight: 300,
+  },
 });
 
 export default function ScoreList(props) {
   const classes = useStyles();
-
-  const tableHeader = (
-    <TableHead>
-      <TableRow>
-        <TableCell className={classes.tableHead}>Course</TableCell>
-        <TableCell className={classes.tableHead}>Score</TableCell>
-        <TableCell className={classes.tableHead}>PAR</TableCell>
-        <TableCell className={classes.tableHead}>Over/Under</TableCell>
-        <TableCell></TableCell>
-      </TableRow>
-    </TableHead>
-  );
 
   // https://stackoverflow.com/questions/37771316/react-triggering-click-event-on-table-row
   const deleteScore = (scoreItem) => {
@@ -54,23 +45,22 @@ export default function ScoreList(props) {
     <div>
       <TableContainer>
         <Table>
-          {tableHeader}
+          <TableHead>
+            <TableRow>
+              <TableCell>Course</TableCell>
+              <TableCell>Score</TableCell>
+              <TableCell>PAR</TableCell>
+              <TableCell>Over/Under</TableCell>
+            </TableRow>
+          </TableHead>
           <TableBody>
             {props.scores &&
               props.scores.map((scoreItem) => (
                 <TableRow key={scoreItem.id}>
-                  <TableCell className={classes.tableCell}>
-                    {scoreItem.course}
-                  </TableCell>
-                  <TableCell className={classes.tableCell}>
-                    {scoreItem.score}
-                  </TableCell>
-                  <TableCell className={classes.tableCell}>
-                    {scoreItem.coursePar}
-                  </TableCell>
-                  <TableCell className={classes.tableCell}>
-                    {scoreItem.scoreToPar}
-                  </TableCell>
+                  <TableCell>{scoreItem.course}</TableCell>
+                  <TableCell>{scoreItem.score}</TableCell>
+                  <TableCell>{scoreItem.coursePar}</TableCell>
+                  <TableCell>{scoreItem.scoreToPar}</TableCell>
                   <TableCell>
                     <EditScoreModal
                       scoreItem={scoreItem}
