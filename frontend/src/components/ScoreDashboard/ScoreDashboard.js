@@ -16,7 +16,7 @@ export default function ScoreDashboard(props) {
         <ScoreSummary averages={props.averages}></ScoreSummary>
       </div>
       <div id="quick-add" className="dashboard-widget">
-        <ScoreInput></ScoreInput>
+        <ScoreInput createScore={props.createScore}></ScoreInput>
       </div>
       <div className="dashboard-widget">
         <ScoreList
