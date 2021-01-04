@@ -14,8 +14,9 @@ scoresRouter.post("/scores", async (req, res) => {
   const score = new Score({
     course: req.body.course,
     score: req.body.score,
-    courseRating: req.body.courseRating,
-    courseSlope: req.body.courseSlope,
+    greensInReg: req.body.greensInReg,
+    noOfFairways: req.body.noOfFairways,
+    noOfPutts: req.body.noOfPutts,
     coursePar: req.body.coursePar,
     scoreToPar: scoreToPar,
   });

@@ -9,11 +9,15 @@ const scoresSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  courseRating: {
+  greensInReg: {
     type: Number,
     required: false,
   },
-  courseSlope: {
+  noOfFairways: {
+    type: Number,
+    required: false,
+  },
+  noOfPutts: {
     type: Number,
     required: false,
   },
@@ -23,8 +27,8 @@ const scoresSchema = mongoose.Schema({
   },
   scoreToPar: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 // TODO: Add dates to scores.
