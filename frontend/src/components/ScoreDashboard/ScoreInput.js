@@ -3,7 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
 import styled from "styled-components";
-import "./ScoreInput.css";
+import "../../styles/ScoreInput.css";
 
 const StyledTextField = styled(TextField)`
 .MuiInputBase-input,

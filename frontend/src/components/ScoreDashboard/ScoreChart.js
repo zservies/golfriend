@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ScoreChart.css";
+import "../../styles/ScoreChart.css";
 import {
   XYPlot,
   VerticalGridLines,

@@ -1,8 +1,7 @@
 import React from "react";
-import AveragesToolbar from "./AveragesToolbar";
 import ScoreInput from "./ScoreInput";
 import ScoreList from "./ScoreList";
-import "./ScoreDashboard.css";
+import "../../styles/ScoreDashboard.css";
 import ScoreChart from "./ScoreChart";
 import ScoreSummary from "./ScoreSummary";
 

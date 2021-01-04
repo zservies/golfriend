@@ -1,6 +1,6 @@
 import React from "react";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-import "./ScoreSummary.css";
+import "../../styles/ScoreSummary.css";
 
 export default function ScoreSummary(props) {
 
