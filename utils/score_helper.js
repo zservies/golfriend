@@ -6,7 +6,7 @@ const scoreToPar = (score, par) => {
     scoreToPar = "E";
   }
 
-  return scoreToPar;
+  return Math.round(scoreToPar);
 };
 
 const totalAverage = (scores) => {
@@ -20,9 +20,10 @@ const totalAverage = (scores) => {
   let averagePar =
     score.par.reduce((total, currentValue) => total + currentValue) / count;
   let averages = {
-    averageScore,
-    averagePar,
+    averageScore: Math.round(averageScore),
+    averagePar: Math.round(averagePar),
     scoreToPar: scoreToPar(averageScore, averagePar),
+    totalRounds: count
   };
   return averages;
 };
