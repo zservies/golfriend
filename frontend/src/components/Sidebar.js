@@ -44,19 +44,19 @@ export default function Sidebar(props) {
           <ListItemText primary="Dashboard" />
         </ListItemLink>
         <Divider />
-        <ListItem button>
+        <ListItemLink button href="/history">
           <ListItemIcon>
             <ListIcon />
           </ListItemIcon>
           <ListItemText primary="History" />
-        </ListItem>
+        </ListItemLink>
         <Divider />
-        <ListItem button>
+        <ListItemLink button>
           <ListItemIcon>
             <SettingsIcon />
           </ListItemIcon>
           <ListItemText primary="Settings" />
-        </ListItem>
+        </ListItemLink>
       </List>
     </div>
   );

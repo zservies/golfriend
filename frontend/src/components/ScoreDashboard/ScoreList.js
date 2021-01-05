@@ -7,29 +7,9 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { makeStyles } from "@material-ui/core/styles";
 import EditScoreModal from "./EditScoreModal";
 
-const useStyles = makeStyles({
-  tableCell: {
-    color: "white",
-    fontSize: "1rem",
-  },
-  tableHead: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: "1rem",
-  },
-  iconButton: {
-    color: "grey",
-  },
-  table: {
-    maxHeight: 300,
-  },
-});
-
 export default function ScoreList(props) {
-  const classes = useStyles();
 
   // https://stackoverflow.com/questions/37771316/react-triggering-click-event-on-table-row
   const deleteScore = (scoreItem) => {
@@ -69,7 +49,6 @@ export default function ScoreList(props) {
                   </TableCell>
                   <TableCell>
                     <IconButton
-                      className={classes.iconButton}
                       onClick={() => deleteScore(scoreItem)}
                     >
                       <DeleteIcon />

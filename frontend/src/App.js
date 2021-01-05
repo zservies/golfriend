@@ -5,10 +5,12 @@ import ".././src/styles/App.css";
 import Landing from "./components/Landing";
 import ScoreDashboard from "./components/ScoreDashboard/ScoreDashboard";
 import Sidebar from "./components/Sidebar";
+import History from "./components/History";
 
 function App() {
   const [scores, setScores] = useState([]);
   const [averages, setAverages] = useState({});
+  
   const createScore = async (score) => {
     console.log(score);
     const result = await axios.post("http://localhost:3003/scores", score);
@@ -62,7 +64,14 @@ function App() {
         </div>
         <div className="content-column-2">
           <Route exact path="/">
-            <Landing></Landing>
+            <Landing />
+          </Route>
+          <Route exact path="/history">
+            <History
+              scores={scores}
+              editScore={editScore}
+              deleteScore={deleteScore}
+            />
           </Route>
           <Route exact path="/dashboard">
             <ScoreDashboard
@@ -71,7 +80,7 @@ function App() {
               scores={scores}
               editScore={editScore}
               deleteScore={deleteScore}
-            ></ScoreDashboard>
+            />
           </Route>
         </div>
       </div>

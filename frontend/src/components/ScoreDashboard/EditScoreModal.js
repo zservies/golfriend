@@ -2,23 +2,22 @@ import React, { useState } from "react";
 import Modal from "@material-ui/core/Modal";
 import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles({
-  iconButton: {
-    color: "grey",
-  },
-});
+import ScoreInput from "./ScoreInput";
 
 export default function EditScore(props) {
-  const classes = useStyles();
   const [openModal, setOpen] = useState(false);
   const [modalStyle] = useState({
-    margin: "auto",
-    width: "35%",
-    height: "50%",
-    background: "grey",
-    textAlign: "center",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    width: "700px",
+    height: "300px",
+    backgroundColor: "#44444B",
+    outline: 0,
+    borderRadius: "10px",
+    boxShadow: "2px 2px 4px 5px rgba(0, 0, 0, 0.2)",
+    color: "white",
   });
   // Make these one object?
   const [course, setCourse] = useState(props.scoreItem.course);
@@ -60,15 +59,11 @@ export default function EditScore(props) {
       </form>
     </div>
   );
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+
+
   return (
     <div>
-      <IconButton className={classes.iconButton} onClick={handleOpen}>
+      <IconButton onClick={() => setOpen(true)}>
         <EditIcon />
       </IconButton>
       <Modal
@@ -78,7 +73,7 @@ export default function EditScore(props) {
           alignItems: "center",
         }}
         open={openModal}
-        onClose={handleClose}
+        onClose={() => setOpen(false)}
       >
         {modalBody}
       </Modal>

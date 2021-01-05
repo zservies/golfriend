@@ -3,7 +3,6 @@ import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import "../../styles/ScoreSummary.css";
 
 export default function ScoreSummary(props) {
-
   return (
     <div className="score-summary-wrapper">
       <h2>Stat Summary</h2>
@@ -26,9 +25,7 @@ export default function ScoreSummary(props) {
         </div>
         <div className="card">
           <div className="card-content">
-            <h1>
-              {props.averages.totalRounds}
-            </h1>
+            <h1>{props.averages.totalRounds}</h1>
             <p>Rounds Played</p>
           </div>
         </div>
