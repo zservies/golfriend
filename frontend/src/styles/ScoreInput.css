@@ -3,7 +3,7 @@
   padding: 0 0 0 25px
 }
 
-form {
+.input-form {
   display: flex;
   justify-content: center;
   gap: 20px;

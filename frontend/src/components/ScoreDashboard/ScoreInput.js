@@ -42,7 +42,7 @@ export default function ScoreInput(props) {
   return (
     <div className="quick-input-wrapper">
       <h2>Add Score</h2>
-      <form noValidate autoComplete="off" onSubmit={submitScore}>
+      <form className="input-form" noValidate autoComplete="off" onSubmit={submitScore}>
         <div className="required-inputs">
           <div className="input">
             <StyledTextField
@@ -99,7 +99,7 @@ export default function ScoreInput(props) {
         <div className="input">
           <Button
             variant="contained"
-            color="primary"
+            color="#1D1B36"
             size="large"
             startIcon={<SaveIcon />}
             type="submit"

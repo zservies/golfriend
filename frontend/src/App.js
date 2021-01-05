@@ -10,7 +10,8 @@ import History from "./components/History";
 function App() {
   const [scores, setScores] = useState([]);
   const [averages, setAverages] = useState({});
-  
+
+  // Move to dashboard component?
   const createScore = async (score) => {
     console.log(score);
     const result = await axios.post("http://localhost:3003/scores", score);
@@ -18,6 +19,7 @@ function App() {
     console.log(result);
   };
 
+  // Move to an API.js file?
   const fetchScores = async () => {
     try {
       const result = await axios.get("http://localhost:3003/scores");
@@ -30,6 +32,7 @@ function App() {
     }
   };
 
+  // Can be moved to specific component.
   const deleteScore = async (id) => {
     try {
       await axios.delete("http://localhost:3003/scores/" + id);
@@ -39,6 +42,7 @@ function App() {
     }
   };
 
+  // Can be moved to specific component - ScoresList
   const editScore = async (editedScore) => {
     console.log(editedScore);
     try {
@@ -60,12 +64,14 @@ function App() {
     <Router>
       <div className="app-wrapper">
         <div className="content-column">
-          <Sidebar></Sidebar>
+          <Sidebar />
         </div>
+
         <div className="content-column-2">
           <Route exact path="/">
             <Landing />
           </Route>
+
           <Route exact path="/history">
             <History
               scores={scores}
@@ -73,6 +79,7 @@ function App() {
               deleteScore={deleteScore}
             />
           </Route>
+
           <Route exact path="/dashboard">
             <ScoreDashboard
               averages={averages}

@@ -1,23 +1,37 @@
 import React, { useState } from "react";
 import Modal from "@material-ui/core/Modal";
 import IconButton from "@material-ui/core/IconButton";
+import SaveIcon from "@material-ui/icons/Save";
 import EditIcon from "@material-ui/icons/Edit";
-import ScoreInput from "./ScoreInput";
+import TextField from "@material-ui/core/TextField";
+import styled from "styled-components";
+
+const StyledTextField = styled(TextField)`
+  .MuiInputBase-input,
+  .MuiFormLabel-root {
+    color: black;
+    &.Mui-focused {
+      color: black;
+    }
+  }
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: black;
+  }
+`;
 
 export default function EditScore(props) {
   const [openModal, setOpen] = useState(false);
   const [modalStyle] = useState({
     display: "flex",
-    justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    width: "700px",
+    width: "450px",
     height: "300px",
-    backgroundColor: "#44444B",
+    backgroundColor: "#f0f0ef",
     outline: 0,
     borderRadius: "10px",
     boxShadow: "2px 2px 4px 5px rgba(0, 0, 0, 0.2)",
-    color: "white",
+    color: "black",
   });
   // Make these one object?
   const [course, setCourse] = useState(props.scoreItem.course);
@@ -38,33 +52,48 @@ export default function EditScore(props) {
 
   const modalBody = (
     <div style={modalStyle}>
-      <h2>Edit Values</h2>
-      <form onSubmit={editScoreHandler}>
-        <input
-          onChange={(event) => setCourse(event.target.value)}
-          type="text"
-          placeholder={course}
-        ></input>
-        <input
-          onChange={(event) => setScore(Number(event.target.value))}
-          type="text"
-          placeholder={score}
-        />
-        <input
-          onChange={(event) => setCoursePar(Number(event.target.value))}
-          type="text"
-          placeholder={coursePar}
-        />
-        <button type="submit">submit</button>
+      <h2>Edit Score</h2>
+      <form style={{ height: "100%" }} onSubmit={editScoreHandler}>
+        <div>
+          <StyledTextField
+            onChange={(event) => setCourse(event.target.value)}
+            id="outlined-basic"
+            label="Course name"
+            variant="outlined"
+            placeholder={course}
+          />
+        </div>
+        <div>
+          <StyledTextField
+            onChange={(event) => setScore(event.target.value)}
+            id="outlined-basic"
+            label="Score"
+            variant="outlined"
+            placeholder={score}
+          />
+        </div>
+        <div>
+          <StyledTextField
+            onChange={(event) => setCoursePar(event.target.value)}
+            id="outlined-basic"
+            label="Course PAR"
+            variant="outlined"
+            placeholder={coursePar}
+          />
+        </div>
+        <div>
+          <IconButton type="submit">
+            <SaveIcon />
+          </IconButton>
+        </div>
       </form>
     </div>
   );
 
-
   return (
     <div>
       <IconButton onClick={() => setOpen(true)}>
-        <EditIcon />
+        <EditIcon color="white" />
       </IconButton>
       <Modal
         style={{
