@@ -24,7 +24,7 @@ const ListItemLink = (props) => {
   return <ListItem button component="a" {...props}></ListItem>;
 };
 
-export default function Sidebar(props) {
+export default function Sidebar() {
   const classes = useStyles();
 
   return (

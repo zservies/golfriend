@@ -23,7 +23,7 @@ const totalAverage = (scores) => {
     averageScore: Math.round(averageScore),
     averagePar: Math.round(averagePar),
     scoreToPar: scoreToPar(averageScore, averagePar),
-    totalRounds: count
+    totalRounds: count,
   };
   return averages;
 };
