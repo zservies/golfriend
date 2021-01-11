@@ -2,7 +2,7 @@ const usersRouter = require("express").Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
-usersRouter.post("/", async (req, res) => {
+usersRouter.post("/user", async (req, res) => {
   const body = req.body;
   const saltRounds = 10;
   const passwordHash = await bcrypt.hash(body.password, saltRounds);
@@ -18,7 +18,7 @@ usersRouter.post("/", async (req, res) => {
   res.json(savedUser);
 });
 
-usersRouter.get("/", async (req, res) => {
+usersRouter.get("/user", async (req, res) => {
   const users = await User.find({}).populate("scores");
   res.json(users);
 });
