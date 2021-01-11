@@ -29,6 +29,10 @@ const scoresSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 // TODO: Add dates to scores.

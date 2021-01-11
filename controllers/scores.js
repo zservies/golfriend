@@ -1,15 +1,22 @@
-const Score = require("../models/scores");
 const scoresRouter = require("express").Router();
+const Score = require("../models/scores");
+const User = require("../models/user");
 const scoreHelper = require("../utils/score_helper");
 
 scoresRouter.get("/scores", async (req, res) => {
-  const scores = await Score.find({});
+  const scores = await Score.find({}).populate("user", {
+    username: 1,
+    name: 1,
+    id: 1,
+  });
   scores.push(scoreHelper.totalAverage(scores));
   res.json(scores);
 });
 
 scoresRouter.post("/scores", async (req, res) => {
   const scoreToPar = scoreHelper.scoreToPar(req.body.score, req.body.coursePar); // Calls helper function to calculate shots over/under par.
+
+  const user = await User.findById(req.body.userId);
 
   const score = new Score({
     course: req.body.course,
@@ -19,10 +26,13 @@ scoresRouter.post("/scores", async (req, res) => {
     noOfPutts: req.body.noOfPutts,
     coursePar: req.body.coursePar,
     scoreToPar: scoreToPar,
+    user: user._id,
   });
 
   try {
     const savedScore = await score.save();
+    user.scores = user.scores.concat(savedScore._id);
+    await user.save();
     res.status(201).json(savedScore);
   } catch (error) {
     res.status(400).send(error);
