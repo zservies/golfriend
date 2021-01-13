@@ -6,7 +6,12 @@ import "../styles/Landing.css";
 export default function Landing(props) {
   return (
     <div className="landing-wrapper">
-      <Login></Login>
+      <div className="reg-widget">
+        <Registration></Registration>
+      </div>
+      <div className="login-widget">
+        <Login></Login>
+      </div>
     </div>
   );
 }

@@ -58,27 +58,24 @@ export default function EditScore(props) {
           <StyledTextField
             onChange={(event) => setCourse(event.target.value)}
             id="outlined-basic"
-            label="Course name"
+            label={course}
             variant="outlined"
-            placeholder={course}
           />
         </div>
         <div>
           <StyledTextField
             onChange={(event) => setScore(event.target.value)}
             id="outlined-basic"
-            label="Score"
+            label={score}
             variant="outlined"
-            placeholder={score}
           />
         </div>
         <div>
           <StyledTextField
             onChange={(event) => setCoursePar(event.target.value)}
             id="outlined-basic"
-            label="Course PAR"
+            label={coursePar}
             variant="outlined"
-            placeholder={coursePar}
           />
         </div>
         <div>
@@ -93,7 +90,7 @@ export default function EditScore(props) {
   return (
     <div>
       <IconButton onClick={() => setOpen(true)}>
-        <EditIcon color="white" />
+        <EditIcon />
       </IconButton>
       <Modal
         style={{
