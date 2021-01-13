@@ -99,7 +99,6 @@ export default function ScoreInput(props) {
         <div className="input">
           <Button
             variant="contained"
-            color="#1D1B36"
             size="large"
             startIcon={<SaveIcon />}
             type="submit"

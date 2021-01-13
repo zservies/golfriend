@@ -1,0 +1,15 @@
+.reg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 500px;
+  width: 500px;
+  background-color: #5b5a63;
+  color: white;
+  border-radius: 20px;
+}
+
+.reg-username, .reg-password, .reg-name {
+  margin: 15px 0 15px 0;
+}
