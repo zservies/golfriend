@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "dev": "cross-env NODE_ENV=development nodemon index.js",
-    "start": "cross-env NODE_ENV=production node index.js"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "cd frontend && npm start",
+    "server": "cross-env NODE_ENV=development nodemon index.js",
+    "server:prod": "cross-env NODE_ENV=production nodemon index.js"
   },
   "author": "Zachary Servies",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^6.2.0",
     "nodemon": "^2.0.4"
   },
   "dependencies": {
